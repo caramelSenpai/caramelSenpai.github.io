@@ -3,152 +3,345 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Website</title>
+  <title>Lazarus Pit</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #0f0f1a;
-      color: #e0e0e0;
+      background: #000;
+      color: #aaffaa;
       min-height: 100vh;
     }
 
     nav {
-      background: #1a1a2e;
+      background: #000;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #6c63ff;
+      border-bottom: 3px solid #39ff14;
     }
 
-    nav .logo {
+    .logo {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #6c63ff;
+      color: #39ff14;
+      letter-spacing: 4px;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-
-    nav ul a {
-      color: #e0e0e0;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    nav ul a:hover { color: #6c63ff; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: #aaffaa; text-decoration: none; transition: color 0.3s; }
+    nav ul a:hover { color: #39ff14; }
 
     .hero {
+      background: #000;
+      padding: 5rem 2rem;
       text-align: center;
-      padding: 6rem 2rem;
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border-bottom: 1px solid #1a3a1a;
+    }
+
+    .hero-inner {
+      border: 1px solid #39ff14;
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      background: #050f05;
+      display: inline-block;
+      max-width: 600px;
+      width: 100%;
     }
 
     .hero h1 {
       font-size: 3rem;
-      color: #6c63ff;
-      margin-bottom: 1rem;
+      color: #39ff14;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero .byline {
+      color: #7dff7d;
+      font-size: 0.95rem;
+      letter-spacing: 3px;
+      margin-bottom: 1.2rem;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      color: #a0a0c0;
-      max-width: 600px;
-      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: #aaffaa;
+      max-width: 480px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+
+    .tags {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      border: 1px solid #39ff14;
+      color: #39ff14;
+      background: transparent;
     }
 
     .btn {
-      background: #6c63ff;
-      color: white;
-      padding: 0.8rem 2rem;
+      background: #39ff14;
+      color: #000;
+      padding: 0.8rem 2.2rem;
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
       transition: background 0.3s;
     }
 
-    .btn:hover { background: #574fd6; }
+    .btn:hover { background: #2bcc0f; }
+
+    /* Sections */
+    .section { padding: 4rem 2rem; }
+
+    .section h2 {
+      font-size: 1.6rem;
+      color: #39ff14;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
 
     .cards {
       display: flex;
-      gap: 2rem;
-      justify-content: center;
+      gap: 1.5rem;
       flex-wrap: wrap;
-      padding: 4rem 2rem;
-      background: #12121f;
+      justify-content: center;
     }
 
     .card {
-      background: #1a1a2e;
-      border: 1px solid #2a2a4a;
+      background: #050f05;
+      border: 1px solid #1a3a1a;
       border-radius: 12px;
-      padding: 2rem;
-      width: 260px;
-      text-align: center;
+      padding: 1.5rem;
+      width: 280px;
       transition: transform 0.3s, border-color 0.3s;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #6c63ff;
+    .card:hover { transform: translateY(-6px); border-color: #39ff14; }
+
+    .card-tag {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #39ff14;
+      margin-bottom: 8px;
     }
 
-    .card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .card h3 { color: #6c63ff; margin-bottom: 0.5rem; }
-    .card p { color: #a0a0c0; font-size: 0.95rem; }
+    .card h3 { font-size: 1rem; color: #fff; margin-bottom: 8px; }
+    .card p  { font-size: 0.9rem; color: #4d7a4d; line-height: 1.6; }
+
+    /* About */
+    #about {
+      background: #050f05;
+      text-align: center;
+      padding: 4rem 2rem;
+      border-top: 1px solid #1a3a1a;
+      border-bottom: 1px solid #1a3a1a;
+    }
+
+    #about h2 {
+      font-size: 1.6rem;
+      color: #39ff14;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    #about p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #aaffaa;
+      line-height: 1.8;
+    }
+
+    /* Projects */
+    #projects { background: #000; }
+
+    .project-card {
+      background: #050f05;
+      border: 1px solid #1a3a1a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 280px;
+      transition: border-color 0.3s;
+    }
+
+    .project-card:hover { border-color: #39ff14; }
+    .project-card h3 { color: #39ff14; margin-bottom: 8px; }
+    .project-card p  { color: #4d7a4d; font-size: 0.9rem; line-height: 1.6; }
+
+    /* Contact */
+    #contact {
+      background: #050f05;
+      padding: 4rem 2rem;
+      text-align: center;
+      border-top: 1px solid #1a3a1a;
+    }
+
+    #contact h2 {
+      font-size: 1.6rem;
+      color: #39ff14;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    form input, form textarea {
+      background: #000;
+      border: 1px solid #1a3a1a;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      color: #aaffaa;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    form input:focus, form textarea:focus { border-color: #39ff14; }
+    form textarea { resize: vertical; min-height: 130px; }
+
+    form button {
+      background: #39ff14;
+      color: #000;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover { background: #2bcc0f; }
 
     footer {
+      background: #000;
       text-align: center;
-      padding: 2rem;
-      background: #1a1a2e;
-      color: #555;
-      border-top: 1px solid #2a2a4a;
+      padding: 1.5rem;
+      border-top: 3px solid #39ff14;
+      color: #4d7a4d;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="logo">MySite</div>
+    <div class="logo">LAZARUS PIT</div>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
+  <!-- Hero -->
   <section class="hero">
-    <h1>Welcome to My Website</h1>
-    <p>A personal space to share my work, ideas, and projects with the world.</p>
-    <a href="#" class="btn">Explore My Work</a>
+    <div class="hero-inner">
+      <h1>Lazarus Pit</h1>
+      <div class="byline">by Nolo</div>
+      <p>Music, anime, pop culture & politics — unfiltered thoughts from a curious mind.</p>
+      <div class="tags">
+        <span class="tag">🎵 Music</span>
+        <span class="tag">⚔️ Anime</span>
+        <span class="tag">🌍 Pop Culture</span>
+        <span class="tag">🗳️ Politics</span>
+      </div>
+      <a href="#blog" class="btn">Read the Blog</a>
+    </div>
   </section>
 
-  <section class="cards">
-    <div class="card">
-      <div class="icon">💡</div>
-      <h3>Ideas</h3>
-      <p>Creative concepts and things I'm thinking about.</p>
+  <!-- Blog -->
+  <section class="section" id="blog">
+    <h2>Latest Posts</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-tag">Music</div>
+        <h3>Why Afrobeats is Taking Over the World</h3>
+        <p>A deep dive into the global rise of a sound born in Lagos and what it means for music culture.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">Anime</div>
+        <h3>Attack on Titan & What It Says About Freedom</h3>
+        <p>The show isn't just action — it's a political manifesto wrapped in titan-sized metaphors.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">Pop Culture</div>
+        <h3>The Era of the Internet Celebrity</h3>
+        <p>Fame has changed forever. Here's what nobody is really saying about the influencer generation.</p>
+      </div>
     </div>
-    <div class="card">
-      <div class="icon">🛠️</div>
-      <h3>Projects</h3>
-      <p>Things I've built and am currently working on.</p>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi, I'm Nolo 👋 I write about music, anime, and life adventures —
+      occasionally diving into pop culture and politics when the world gives me
+      something to say. Lazarus Pit is my corner of the internet to think out loud,
+      share opinions, and connect with people who love the same things.
+    </p>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="cards">
+      <div class="project-card">
+        <h3>🎧 Music Picks</h3>
+        <p>A curated list of tracks and artists I've been obsessing over — updated regularly.</p>
+      </div>
+      <div class="project-card">
+        <h3>📺 Anime Reviews</h3>
+        <p>Honest reviews and rankings of anime I've watched, no spoilers (unless warned).</p>
+      </div>
+      <div class="project-card">
+        <h3>✍️ Opinion Archive</h3>
+        <p>A collection of my longer essays on culture, society, and everything in between.</p>
+      </div>
     </div>
-    <div class="card">
-      <div class="icon">📬</div>
-      <h3>Contact</h3>
-      <p>Get in touch — I'd love to hear from you.</p>
-    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" placeholder="Your message..."></textarea>
+      <button type="submit">Send Message 🚀</button>
+    </form>
   </section>
 
   <footer>
-    <p>&copy; 2026 MySite. Built with GitHub Pages.</p>
+    <p>&copy; 2026 Lazarus Pit · Built with GitHub Pages</p>
   </footer>
 
 </body>
