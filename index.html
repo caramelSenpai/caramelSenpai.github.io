@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Website</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f1a;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    nav {
+      background: #1a1a2e;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #6c63ff;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #6c63ff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      color: #e0e0e0;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav ul a:hover { color: #6c63ff; }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #6c63ff;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #a0a0c0;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      background: #6c63ff;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover { background: #574fd6; }
+
+    .cards {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 4rem 2rem;
+      background: #12121f;
+    }
+
+    .card {
+      background: #1a1a2e;
+      border: 1px solid #2a2a4a;
+      border-radius: 12px;
+      padding: 2rem;
+      width: 260px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #6c63ff;
+    }
+
+    .card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .card h3 { color: #6c63ff; margin-bottom: 0.5rem; }
+    .card p { color: #a0a0c0; font-size: 0.95rem; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1a1a2e;
+      color: #555;
+      border-top: 1px solid #2a2a4a;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">MySite</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to My Website</h1>
+    <p>A personal space to share my work, ideas, and projects with the world.</p>
+    <a href="#" class="btn">Explore My Work</a>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <div class="icon">💡</div>
+      <h3>Ideas</h3>
+      <p>Creative concepts and things I'm thinking about.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🛠️</div>
+      <h3>Projects</h3>
+      <p>Things I've built and am currently working on.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📬</div>
+      <h3>Contact</h3>
+      <p>Get in touch — I'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 MySite. Built with GitHub Pages.</p>
+  </footer>
+
+</body>
+</html>
